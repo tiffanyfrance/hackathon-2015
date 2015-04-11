@@ -7,10 +7,14 @@
 	<h2>Welcome back, <%= user.displayName %>.</h2>
 <% } %>
 
+<div class="calendar">
+
+</div>
 <script type="text/javascript">
   var cal = new Calendar();
   cal.generateHTML();
-  document.write(cal.getHTML());
+  //document.write(cal.getHTML());
+  $('div.calendar').html(cal.getHTML());
 </script>
 
 <% include footer %>
