@@ -41,7 +41,8 @@ Calendar.prototype.generateHTML = function(){
   var monthName = cal_months_labels[this.month]
   var html = '<table class="calendar-table">';
   html += '<tr><th colspan="7">';
-  html +=  monthName + "&nbsp;" + this.year;
+  //html +=  monthName + "&nbsp;" + this.year;
+  html +=  monthName;
   html += '</th></tr>';
   html += '<tr class="calendar-header">';
   for(var i = 0; i <= 6; i++ ){
@@ -57,7 +58,7 @@ Calendar.prototype.generateHTML = function(){
   for (var i = 0; i < 9; i++) {
     // this loop is for weekdays (cells)
     for (var j = 0; j <= 6; j++) { 
-      html += '<td class="calendar-day">';
+      html += '<td class="calendar-day ' + monthName + day + this.year + '">';
       if (day <= monthLength && (i > 0 || j >= startingDay)) {
         html += day;
         day++;
