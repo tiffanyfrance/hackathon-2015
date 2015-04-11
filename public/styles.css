@@ -56,6 +56,19 @@ body {
 	background-attachment: fixed;
 	font-family: silkscreennormal, sans-serif;
 }
+
+h2.loggedin {
+	float: right;
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	background: #444;
+	padding: 16px 60px;
+	margin-top: 0px;
+	font-size: 15px;
+	border-bottom-left-radius: 5px;
+}
+
 .wrapper {
 	width:960px;
 	margin:0 auto;
@@ -78,15 +91,21 @@ body {
 
 .createNew input[type="submit"] {
 	position: absolute;
-	top: 205;
+	top: 440;
 	margin: 0 auto;
-	margin-left: 15%;
+	margin-left: 13%;
 	color: #fff;
-	padding: 6px 28px;
+	padding: 12px 28px;
 	border-radius: 3px;
 	border: solid 2px lightblue;
 	background: #3D7A99;
 	font-size: 14px;
+	font-family: silkscreennormal, helvetica, sans-serif;
+	cursor: pointer;
+}
+
+.createNew input[type="submit"]:hover {
+	background: #6495AD;
 }
 
 .parallax {
