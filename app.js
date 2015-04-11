@@ -85,6 +85,14 @@ app.get('/login', function(req, res){
   res.render('login', { user: req.user });
 });
 
+app.get('/header', function(req, res){
+  res.render('header', { user: req.user });
+});
+
+app.get('/footer', function(req, res){
+  res.render('footer', { user: req.user });
+});
+
 // GET /auth/google
 //   Use passport.authenticate() as route middleware to authenticate the
 //   request.  The first step in Google authentication will involve
