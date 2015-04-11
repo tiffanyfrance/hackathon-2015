@@ -110,9 +110,10 @@ h2.loggedin {
 }
 
 .createNew .titledate {
-	padding-bottom:30px;
+/*	padding-bottom:30px;*/
 	text-align: center;
-	padding-top:20px;
+	padding-top: 20px;
+	margin-bottom: 12px;
 }
 
 form {margin-bottom:0px;}
@@ -123,10 +124,8 @@ form {margin-bottom:0px;}
 }
 
 .createNew input[type="submit"] {
-	position: absolute;
-	top: 440;
-	margin: 0 auto;
-	margin-left: 30%;
+	margin-top: -21px;
+	margin-left: 41.5%;
 	color: #fff;
 	padding: 12px 28px;
 	border-radius: 3px;
@@ -148,6 +147,7 @@ form {margin-bottom:0px;}
 	color:#666;
 	padding-bottom:50px;
 	margin-bottom:30px;
+	margin-top: -19px;
 }
 
 .prevnext {
