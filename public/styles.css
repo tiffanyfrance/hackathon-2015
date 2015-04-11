@@ -84,3 +84,18 @@ body {
 	letter-spacing: -20px;
 }
 
+.tasks {
+	position: absolute;
+	top: 655px;
+	right: 0px;
+	background: #fff0ff;
+	padding: 10px 30px;
+	text-align: center;
+	border: solid 3px #ff66ff;
+	border-right: 0px;
+}
+
+.tasks a {
+	color:#ff66ff;
+	text-decoration: none;
+}
