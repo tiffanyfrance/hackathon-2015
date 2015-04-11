@@ -3,9 +3,13 @@
 
 <div class="wrapper">
 
-	<h1>
+	<h1 id="anton">
 		<img src="/dragin2.gif" style="width:400px;padding:0px 0px 5px;"/>
 	</h1>
+
+	<script>
+		$('#anton').html('<img src="/dragin2.gif?t='+ Date.now() + '" style="width:400px;padding:0px 0px 5px;"/>');
+	</script>
 
 	<% if (!user) { %>
 		<h2>Welcome! Please log in.</h2>

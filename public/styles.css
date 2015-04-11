@@ -110,7 +110,7 @@ h2.loggedin {
 }
 
 .createNew .titledate {
-	padding-bottom:20px;
+	padding-bottom:30px;
 	text-align: center;
 	padding-top:20px;
 }
@@ -124,7 +124,7 @@ form {margin-bottom:0px;}
 
 .createNew input[type="submit"] {
 	position: absolute;
-	top: 429;
+	top: 440;
 	margin: 0 auto;
 	margin-left: 30%;
 	color: #fff;
