@@ -60,7 +60,13 @@ Calendar.prototype.generateHTML = function(data){
   for (var i = 0; i < 9; i++) {
     // this loop is for weekdays (cells)
     for (var j = 0; j <= 6; j++) { 
-      html += '<td class="calendar-day ' + monthName + day + this.year + '">';
+      var pastDateClass = '';
+
+      if (new Date(this.year, this.month, day) < cal_current_date) {
+        pastDateClass = 'gray';
+      }
+
+      html += '<td class="calendar-day ' + pastDateClass + ' ' + monthName + day + this.year + '">';
       if (day <= monthLength && (i > 0 || j >= startingDay)) {
         html += day;
 
@@ -95,8 +101,4 @@ Calendar.prototype.generateHTML = function(data){
 
 Calendar.prototype.getHTML = function() {
   return this.html;
-}
-
-function compareDates(a, b) {
-
 }
