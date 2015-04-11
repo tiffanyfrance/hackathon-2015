@@ -84,6 +84,10 @@ app.get('/account', ensureAuthenticated, function(req, res){
   res.render('account', { user: req.user });
 });
 
+app.get('/taskboard', ensureAuthenticated, function(req, res){
+  res.render('taskboard', { user: req.user });
+});
+
 app.get('/posts', ensureAuthenticated, function(req, res){
   var query = "select * from posts where id = '" + req.user.id + "'";
 

@@ -105,11 +105,12 @@ h2.loggedin {
 	font-size: 35px;
 	font-style: normal;
 	padding-left: 93px;
-	padding: 12px 0px 0px 100px;
+	padding: 0px 0px 0px 100px;
+	font-family: silkscreennormal, helvetica, sans-serif;
 }
 
 .createNew .titledate {
-	padding-bottom:50px;
+	padding-bottom:20px;
 	text-align: center;
 	padding-top:20px;
 }
@@ -123,7 +124,7 @@ form {margin-bottom:0px;}
 
 .createNew input[type="submit"] {
 	position: absolute;
-	top: 510;
+	top: 429;
 	margin: 0 auto;
 	margin-left: 30%;
 	color: #fff;
@@ -168,6 +169,7 @@ a#nextMonth {padding-left:5px;}
 	width:100%;
 	border-spacing: 10px;
 	border-collapse: separate;
+	color:#444;
 }
 .calendar td.calendar-day {
 	width:14%;
@@ -224,3 +226,21 @@ a#nextMonth {padding-left:5px;}
 	color:#ff66ff;
 	text-decoration: none;
 }
+
+.fail {
+	line-height: 10px;
+	color: #333;
+	background: #fff;
+	display: block;
+	width: 100px;
+	padding: 5px;
+	font-size: 10px;
+	border: solid 1px #ccc;
+}
+
+.trash {
+	margin-bottom:20px;
+	margin-top:-10px;
+}
+
+.trash img {width:100px;display:inline-block;}
