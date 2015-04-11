@@ -64,6 +64,7 @@ app.set('view engine', 'ejs');
 app.use(morgan('dev'));
 app.use(cookieParser());
 app.use(bodyParser.json());
+app.use(bodyParser.urlencoded());
 app.use(methodOverride());
 app.use(session({ secret: 'keyboard cat' }));
 // Initialize Passport!  Also use passport.session() middleware, to support
@@ -79,6 +80,24 @@ app.get('/', function(req, res){
 
 app.get('/account', ensureAuthenticated, function(req, res){
   res.render('account', { user: req.user });
+});
+
+app.get('/createPost', ensureAuthenticated, function(req, res){
+  res.render('createPost', { user: req.user });
+});
+
+app.post('/createPost', ensureAuthenticated, function(req, res){
+  console.log(req.body);
+  
+  var query = 
+    "insert into posts values ('" 
+      + req.user.id + "', '" 
+      + req.body.title + "', '"
+      + req.body.url + "', date '"
+      + req.body.endDate + "')";
+
+  runQuery(query);
+  res.send(req.body);
 });
 
 app.get('/login', function(req, res){
