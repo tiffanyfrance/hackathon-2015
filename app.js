@@ -82,6 +82,14 @@ app.get('/account', ensureAuthenticated, function(req, res){
   res.render('account', { user: req.user });
 });
 
+app.get('/posts', ensureAuthenticated, function(req, res){
+  var query = "select * from posts where id = '" + req.user.id + "'";
+
+  runQuery(query, function(result) {
+    res.json(result.rows);
+  });
+});
+
 app.get('/createPost', ensureAuthenticated, function(req, res){
   res.render('createPost', { user: req.user });
 });
@@ -176,7 +184,7 @@ app.listen(process.env.PORT || 3000);
 //   login page.
 function ensureAuthenticated(req, res, next) {
   if (req.isAuthenticated()) { return next(); }
-  res.redirect('/login');
+  res.redirect('/');
 }
 
 function runQuery(str, callback) {
