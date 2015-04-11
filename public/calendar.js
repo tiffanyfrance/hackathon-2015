@@ -21,7 +21,8 @@ function Calendar(month, year) {
   this.html = '';
 }
 
-Calendar.prototype.generateHTML = function(){
+Calendar.prototype.generateHTML = function(data){
+  var posts = (data) ? data : [];
 
   // get first day of month
   var firstDay = new Date(this.year, this.month, 1);
@@ -61,6 +62,16 @@ Calendar.prototype.generateHTML = function(){
       html += '<td class="calendar-day ' + monthName + day + this.year + '">';
       if (day <= monthLength && (i > 0 || j >= startingDay)) {
         html += day;
+
+        console.log(this.year, this.month+1, day);
+
+        var postsToday = findDate(posts, this.year, this.month+1, day);
+
+        for(var k = 0; k < postsToday.length; k++) {
+          var post = postsToday[k];
+          html += "<br/>" + post.title + " <a href='" + post.url + "'>url</a>";
+        }
+
         day++;
       }
       html += '</td>';
