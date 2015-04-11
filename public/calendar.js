@@ -78,7 +78,7 @@ Calendar.prototype.generateHTML = function(data){
           var post = postsToday[k];
 
           // Only do post end dates that are in the future
-          if (new Date(post.enddate) >= cal_current_date) {
+          if (new Date(post.enddate.substr(0, 10)) >= cal_current_date) {
             html += "<span class='post'><a href='" + post.url + "'>" + post.title + "</a></span> ";
           }
         }
