@@ -40,6 +40,15 @@
 
 }
 
+@font-face {
+    font-family: 'wendyregular';
+    src: url('fonts/wendy-webfont.woff2') format('woff2'),
+         url('fonts/wendy-webfont.woff') format('woff'),
+         url('fonts/wendy-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+
 
 * {}
 body {
@@ -81,18 +90,22 @@ body {
 	text-align: left;
 	padding-bottom: 10px;
 	border-bottom: solid lightblue 8px;
-	letter-spacing: -20px;
+	letter-spacing: -10px;
+	font-family: silkscreennormal, 'wendyregular', sans-serif;
 }
 
 .tasks {
-	position: absolute;
-	top: 655px;
+	position: fixed;
+	bottom: 20px;
 	right: 0px;
 	background: #fff0ff;
-	padding: 10px 30px;
+	padding: 10px 50px;
 	text-align: center;
 	border: solid 3px #ff66ff;
 	border-right: 0px;
+	-webkit-box-shadow:-10px 13px 5px 0px rgba(0,0,0,0.3);
+	-moz-box-shadow: -10px 13px 5px 0px rgba(0,0,0,0.3);
+	box-shadow: -10px 13px 5px 0px rgba(0,0,0,0.3);
 }
 
 .tasks a {
