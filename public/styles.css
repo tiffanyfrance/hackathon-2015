@@ -57,6 +57,8 @@ body {
 	font-family: silkscreennormal, sans-serif;
 }
 
+a {text-decoration: none;}
+
 h2.loggedin {
 	float: right;
 	position: absolute;
@@ -113,7 +115,23 @@ h2.loggedin {
 	background-color:#fff;
 	padding:10px;
 	color:#666;
+	padding-bottom:50px;
 }
+
+.prevnext {
+	position: absolute;
+	left: 81%;
+	top: 463px;
+	font-size: 81px;
+}
+
+.prevnext a {
+	color:#3D7A99;
+}
+
+.prevnext a:hover {color:lightblue;}
+
+a#nextMonth {padding-left:5px;}
 
 .calendar {margin: 0 auto;color:lightblue;}
 .calendar table {
@@ -132,15 +150,19 @@ h2.loggedin {
 	font-size: 20px;
 }
 
+.calendar td.calendar-day:hover {cursor: pointer;background:#FFFFFC;}
+
 .calendar td.calendar-day.gray {
 	background: gray;
 	opacity: .2;
 }
 
+.calendar td.calendar-day.gray:hover {cursor:default;}
+
 .calendar td span {
 	max-width:100px;
 	display:block;
-	font-size:10px;
+	font-size:12px;
 	font-family: helvetica, 'helvetica neue', arial, sans-serif;
 }
 .calendar th {
