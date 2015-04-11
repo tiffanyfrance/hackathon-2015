@@ -9,12 +9,18 @@
 	<% } else { %>
 		<h2>Welcome back, <%= user.displayName %>.</h2>
 		<h3><a href="/createPost">New Dragin</a></h3>
+		<h3>
+			<a id="prevMonth" href="#">Prev</a>
+			<a id="nextMonth" href="#">Next</a>
+		</h3>
 		<div class="parallax">
 			<div class="calendar"></div>
 			<div class="tasks">
 				<a href="">Completed<br />Tasks</a>
 			</div>
 		</div>
+
+		<script src="index.js"></script>
 	<% } %>
 
 </div>
