@@ -56,6 +56,21 @@ body {
 	background-attachment: fixed;
 	font-family: silkscreennormal, sans-serif;
 }
+
+a {text-decoration: none;}
+
+h2.loggedin {
+	float: right;
+	position: absolute;
+	top: 0px;
+	right: 0px;
+	background: #444;
+	padding: 16px 60px;
+	margin-top: 0px;
+	font-size: 15px;
+	border-bottom-left-radius: 5px;
+}
+
 .wrapper {
 	width:960px;
 	margin:0 auto;
@@ -63,30 +78,66 @@ body {
 	color:#fff;
 }
 
-.createNew {
+.createNew div {
 	background: aliceblue;
 	width:50%;
 	margin:0 auto;
 	padding:10px;
 	color:#99ccff;
 }
+
+.createNew .url {
+	margin-bottom:10px;
+	border-bottom: solid 2px #3D7A99;
+}
+
+.createNew .url input {
+	width: 85%;
+	color: #444;
+	font-size: 16px;
+	/*font-family: silkscreennormal, helvetica, sans-serif;*/
+	padding:10px;
+	font-style: italic;
+}
+
+.createNew .titledate input {
+	color: #444;
+	font-size: 35px;
+	font-style: normal;
+	padding-left: 93px;
+	padding: 12px 0px 0px 100px;
+}
+
+.createNew .titledate {
+	padding-bottom:50px;
+	text-align: center;
+	padding-top:20px;
+}
+
+form {margin-bottom:0px;}
+
 .createNew input {
 	background: transparent;
 	border: none;
-	font-size: 27px;
 }
 
 .createNew input[type="submit"] {
 	position: absolute;
-	top: 205;
+	top: 510;
 	margin: 0 auto;
-	margin-left: 15%;
+	margin-left: 30%;
 	color: #fff;
-	padding: 6px 28px;
+	padding: 12px 28px;
 	border-radius: 3px;
 	border: solid 2px lightblue;
 	background: #3D7A99;
 	font-size: 14px;
+	font-family: silkscreennormal, helvetica, sans-serif;
+	cursor: pointer;
+}
+
+.createNew input[type="submit"]:hover {
+	background: #6495AD;
 }
 
 .parallax {
@@ -94,9 +145,25 @@ body {
 	background-color:#fff;
 	padding:10px;
 	color:#666;
+	padding-bottom:50px;
+	margin-bottom:30px;
 }
 
-.calendar {margin: 0 auto;color:lightblue;}
+.prevnext {
+	text-align: right;
+	font-size: 81px;
+	margin-top: -10px;
+}
+
+.prevnext a {
+	color:#3D7A99;
+}
+
+.prevnext a:hover {color:lightblue;}
+
+a#nextMonth {padding-left:5px;}
+
+.calendar {margin: 0 auto;color:lightblue;margin-top: -85px;}
 .calendar table {
 	width:100%;
 	border-spacing: 10px;
@@ -113,15 +180,19 @@ body {
 	font-size: 20px;
 }
 
+.calendar td.calendar-day:hover {cursor: pointer;background:#FFFFFC;}
+
 .calendar td.calendar-day.gray {
 	background: gray;
 	opacity: .2;
 }
 
+.calendar td.calendar-day.gray:hover {cursor:default;}
+
 .calendar td span {
 	max-width:100px;
 	display:block;
-	font-size:10px;
+	font-size:12px;
 	font-family: helvetica, 'helvetica neue', arial, sans-serif;
 }
 .calendar th {

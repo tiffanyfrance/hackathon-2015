@@ -3,26 +3,30 @@
 
 <div class="wrapper">
 
+	<h1>
+		<img src="/dragin.gif" style="width:450px;padding:15px 0px 15px;"/>
+	</h1>
+
 	<% if (!user) { %>
 		<h2>Welcome! Please log in.</h2>
 		<a href="/auth/google">Login with Google</a>
 	<% } else { %>
-		<h2>Welcome back, <%= user.displayName %>.</h2>
+		<h2 class="loggedin">Welcome, <%= user.displayName %>.</h2>
 		<!-- <h3><a href="/createPost">New Dragin</a></h3> -->
 		
 		<div class="createNew">
 			<% include createPost %>
 		</div>
 
-<!-- 		<h3>
-			<a id="prevMonth" href="#">Prev</a>
-			<a id="nextMonth" href="#">Next</a>
-		</h3> -->
-
 		<div class="parallax">
+
+			<div class="prevnext">
+				<a id="prevMonth" href="#">&laquo;</a><a id="nextMonth" href="#">&raquo;</a>
+			</div>
+
 			<div class="calendar"></div>
 			<div class="tasks">
-				<a href="">Go to Completed<br />Tasks</a>
+				<a href="">Go to <br />Completed Tasks &raquo;</a>
 			</div>
 		</div>
 

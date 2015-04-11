@@ -1,8 +1,17 @@
 	<form action="/createPost" method="post">
-	  title: <input type="text" name="title"><br>
-	  url: <input id="createUrl" type="text" name="url"><br>
-	  date: <input type="date" name="endDate" value="2015-04-11"><br>
-	  <input type="submit" value="Submit">
+		<div class="url">
+		  	title: <input type="text" name="title">
+		</div>
+		<div class="url">
+		  	url: <input type="text" name="url">
+		</div>
+
+		<div class="titledate">
+	  		When do you want to finish this by?<br />
+	  		<input type="date" name="endDate" value="2015-04-11"><br />
+	  	</div>
+
+	  <input type="submit" value="Create Task">
 	  <input id="getImages" type="button" value="Get Images">
 	</form>
 
