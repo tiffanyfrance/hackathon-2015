@@ -15,7 +15,9 @@
 		$('form').submit(function(e) {
 			console.log($(this).serializeObject());
 
-			$.post( "/createPost", $(this).serializeObject() );
+			$.post( "/createPost", $(this).serializeObject(), function() {
+				window.location = "/";
+			});
  
 			e.preventDefault();
 		});
