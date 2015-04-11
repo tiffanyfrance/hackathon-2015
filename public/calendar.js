@@ -69,7 +69,7 @@ Calendar.prototype.generateHTML = function(data){
 
         for(var k = 0; k < postsToday.length; k++) {
           var post = postsToday[k];
-          html += "<br/>" + post.title + " <a href='" + post.url + "'>url</a>";
+          html += "<span class='post'><a href='" + post.url + "'>" + post.title + "</a></span>";
         }
 
         day++;

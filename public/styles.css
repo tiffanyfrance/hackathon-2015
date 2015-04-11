@@ -53,7 +53,7 @@
 * {}
 body {
 	background: url('bgd.png');
-	background-size:100%;
+	background-attachment: fixed;
 	font-family: silkscreennormal, sans-serif;
 }
 .wrapper {
