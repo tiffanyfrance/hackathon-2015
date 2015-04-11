@@ -113,6 +113,12 @@ app.get('/auth/google',
 app.get('/auth/google/callback', 
   passport.authenticate('google', { failureRedirect: '/login' }),
   function(req, res) {
+    runQuery('select * from users where id = \'' + req.user.id +'\'', function(result) {
+      if(result.rows.length === 0) {
+        console.log('user not found adding user to the db');
+        runQuery('insert into users values (\''+ req.user.id + '\');');
+      }
+    });
     res.redirect('/');
   });
 
@@ -131,7 +137,7 @@ app.get('/db', function (request, response) {
   pg.connect(process.env.DATABASE_URL, function(err, client, done) {
     console.log(err);
 
-    client.query('SELECT * FROM test_table', function(err, result) {
+    client.query('SELECT * FROM users', function(err, result) {
       done();
       if (err)
        { console.error(err); response.send("Error " + err); }
@@ -152,4 +158,20 @@ app.listen(process.env.PORT || 3000);
 function ensureAuthenticated(req, res, next) {
   if (req.isAuthenticated()) { return next(); }
   res.redirect('/login');
+}
+
+function runQuery(str, callback) {
+  pg.connect(process.env.DATABASE_URL, function(err, client, done) {
+    console.log(err);
+
+    client.query(str, function(err, result) {
+      done();
+      if (err) {
+        console.error(err);
+      }
+      else if(callback) { 
+        callback(result);
+      }
+    });
+  });
 }
