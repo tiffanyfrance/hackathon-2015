@@ -1,1 +1,57 @@
-* {font-family: sans-serif;}
+/* FONTS */
+
+@font-face {
+    font-family: 'silkscreenbold';
+    src: url('fonts/slkscrb-webfont.woff2') format('woff2'),
+         url('fonts/slkscrb-webfont.woff') format('woff'),
+         url('fonts/slkscrb-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'silkscreennormal';
+    src: url('fonts/slkscr-webfont.woff2') format('woff2'),
+         url('fonts/slkscr-webfont.woff') format('woff'),
+         url('fonts/slkscr-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'silkscreen_expandednormal';
+    src: url('fonts/slkscre-webfont.woff2') format('woff2'),
+         url('fonts/slkscre-webfont.woff') format('woff'),
+         url('fonts/slkscre-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+@font-face {
+    font-family: 'silkscreen_expandedbold';
+    src: url('fonts/slkscreb-webfont.woff2') format('woff2'),
+         url('fonts/slkscreb-webfont.woff') format('woff'),
+         url('fonts/slkscreb-webfont.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
+
+* {font-family: silkscreennormal, sans-serif;color:#fff;}
+body {
+	background: url('bgd.png');
+	background-size:100%;
+}
+.wrapper {
+	width:960px;
+	margin:0 auto;
+	padding:10px;
+}
+.parallax {
+	background-color:#fff;
+	padding:10px;
+}
