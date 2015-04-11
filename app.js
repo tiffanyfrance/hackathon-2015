@@ -6,7 +6,8 @@ var express = require('express')
   , cookieParser = require('cookie-parser')
   , bodyParser = require('body-parser')
   , methodOverride = require('method-override')
-  , session = require('express-session');
+  , session = require('express-session')
+  , pg = require('pg');
 
 // API Access link for creating client ID and secret:
 // https://code.google.com/apis/console/
@@ -111,6 +112,26 @@ app.get('/logout', function(req, res){
   req.logout();
   res.redirect('/');
 });
+
+console.log(process.env.DATABASE_URL);
+// If no port then we are on local
+if(!process.env.PORT) {
+  process.env.DATABASE_URL += '?ssl=true';
+}
+
+app.get('/db', function (request, response) {
+  pg.connect(process.env.DATABASE_URL, function(err, client, done) {
+    console.log(err);
+
+    client.query('SELECT * FROM test_table', function(err, result) {
+      done();
+      if (err)
+       { console.error(err); response.send("Error " + err); }
+      else
+       { response.send(result.rows); }
+    });
+  });
+})
 
 app.listen(process.env.PORT || 3000);
 
