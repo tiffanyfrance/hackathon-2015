@@ -41,7 +41,7 @@
 }
 
 
-* {font-family: silkscreennormal, sans-serif;color:#fff;}
+* {font-family: silkscreennormal, sans-serif;}
 body {
 	background: url('bgd.png');
 	background-size:100%;
@@ -50,8 +50,10 @@ body {
 	width:960px;
 	margin:0 auto;
 	padding:10px;
+	color:#fff;
 }
 .parallax {
 	background-color:#fff;
 	padding:10px;
+	color:#333;
 }
