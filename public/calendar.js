@@ -13,7 +13,8 @@ cal_months_labels = ['January', 'February', 'March', 'April',
 cal_days_in_month = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
 
 // this is the current date
-cal_current_date = new Date(); 
+cal_current_date = new Date();
+cal_current_date.setHours(0, 0, 0, 0);
 
 function Calendar(month, year) {
   this.month = (isNaN(month) || month == null) ? cal_current_date.getMonth() : month;
@@ -63,13 +64,17 @@ Calendar.prototype.generateHTML = function(data){
       if (day <= monthLength && (i > 0 || j >= startingDay)) {
         html += day;
 
-        console.log(this.year, this.month+1, day);
+        //console.log(this.year, this.month+1, day);
 
         var postsToday = findDate(posts, this.year, this.month+1, day);
 
         for(var k = 0; k < postsToday.length; k++) {
           var post = postsToday[k];
-          html += "<span class='post'><a href='" + post.url + "'>" + post.title + "</a></span>";
+
+          // Only do post end dates that are in the future
+          if (new Date(post.enddate) >= cal_current_date) {
+            html += "<span class='post'><a href='" + post.url + "'>" + post.title + "</a></span> ";
+          }
         }
 
         day++;
@@ -90,4 +95,8 @@ Calendar.prototype.generateHTML = function(data){
 
 Calendar.prototype.getHTML = function() {
   return this.html;
+}
+
+function compareDates(a, b) {
+
 }

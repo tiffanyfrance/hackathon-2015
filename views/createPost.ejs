@@ -10,8 +10,13 @@
 		$('form').submit(function(e) {
 			console.log($(this).serializeObject());
 
-			$.post( "/createPost", $(this).serializeObject(), function() {
-				window.location = "/";
+			var postData = $(this).serializeObject();
+			if(postData.url.indexOf('http://') === -1) {
+				postData.url = 'http://' + postData.url;
+			}
+
+			$.post( "/createPost", postData, function() {
+				getLatest();
 			});
  
 			e.preventDefault();

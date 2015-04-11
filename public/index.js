@@ -1,9 +1,18 @@
-$(document).ready(function() {
+var cal = new Calendar();
+
+function updateCal(data) {
+	cal.generateHTML(data);
+	$('div.calendar').html(cal.getHTML());
+}
+
+function getLatest() {
 	$.getJSON('/posts', function(data) {
-		console.log(data);
-		foobar = data;
 		updateCal(data);
 	});
+}
+
+$(document).ready(function() {
+	getLatest();
 
 	$('#nextMonth').click(function(e) {
 		cal.month++;
@@ -19,13 +28,7 @@ $(document).ready(function() {
 		e.preventDefault();
 	});
 
-	var cal = new Calendar();
 	updateCal();
-
-	function updateCal(data) {
-		cal.generateHTML(data);
-		$('div.calendar').html(cal.getHTML());
-	}
 });
 
 function findDate(posts, year, month, day) {
