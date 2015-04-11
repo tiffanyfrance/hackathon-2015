@@ -7,7 +7,9 @@ var express = require('express')
   , bodyParser = require('body-parser')
   , methodOverride = require('method-override')
   , session = require('express-session')
-  , pg = require('pg');
+  , pg = require('pg')
+  , request = require('request');
+
 
 // API Access link for creating client ID and secret:
 // https://code.google.com/apis/console/
@@ -88,6 +90,46 @@ app.get('/posts', ensureAuthenticated, function(req, res){
   runQuery(query, function(result) {
     res.json(result.rows);
   });
+});
+
+
+
+app.post('/getImages', ensureAuthenticated, function(req, res){
+  for(var i in req.body) {
+    break;
+  }
+  console.log(i);
+
+  request(i, function (error, response, body) {
+    var results = [];
+
+    if (!error && response.statusCode == 200) {
+      var imgs = body.match(/<img.*?>/g);
+
+      var count = 0;
+      for(var a = 0; a < imgs.length; a++) {
+        try {
+          var imgUrl = imgs[a].match(/src.*?=.*?('|").*?('|")/)[0].match(/('|").*?('|")/)[0];
+          imgUrl = imgUrl.substring(1, imgUrl.length-1);
+
+          console.log(imgUrl);
+          results.push(imgUrl);
+
+          count++;
+          if(count > 4) {
+            break;
+          }
+        } catch(e) {
+
+        }
+      }
+    } else {
+      console.log('crap');
+    }
+
+    res.send(results);
+  });
+  
 });
 
 app.get('/createPost', ensureAuthenticated, function(req, res){

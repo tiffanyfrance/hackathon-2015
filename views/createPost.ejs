@@ -1,12 +1,43 @@
 	<form action="/createPost" method="post">
 	  title: <input type="text" name="title"><br>
-	  url: <input type="text" name="url"><br>
+	  url: <input id="createUrl" type="text" name="url"><br>
 	  date: <input type="date" name="endDate" value="2015-04-11"><br>
 	  <input type="submit" value="Submit">
+	  <input id="getImages" type="button" value="Get Images">
 	</form>
 
 	<script src="jquery.serialize-object.min.js"></script>
 	<script>
+		function parseUri (str) {
+			var	o   = parseUri.options,
+				m   = o.parser[o.strictMode ? "strict" : "loose"].exec(str),
+				uri = {},
+				i   = 14;
+
+			while (i--) uri[o.key[i]] = m[i] || "";
+
+			uri[o.q.name] = {};
+			uri[o.key[12]].replace(o.q.parser, function ($0, $1, $2) {
+				if ($1) uri[o.q.name][$1] = $2;
+			});
+
+			return uri;
+		};
+
+		parseUri.options = {
+			strictMode: false,
+			key: ["source","protocol","authority","userInfo","user","password","host","port","relative","path","directory","file","query","anchor"],
+			q:   {
+				name:   "queryKey",
+				parser: /(?:^|&)([^&=]*)=?([^&]*)/g
+			},
+			parser: {
+				strict: /^(?:([^:\/?#]+):)?(?:\/\/((?:(([^:@]*)(?::([^:@]*))?)?@)?([^:\/?#]*)(?::(\d*))?))?((((?:[^?#\/]*\/)*)([^?#]*))(?:\?([^#]*))?(?:#(.*))?)/,
+				loose:  /^(?:(?![^:@]+:[^:@\/]*@)([^:\/?#.]+):)?(?:\/\/)?((?:(([^:@]*)(?::([^:@]*))?)?@)?([^:\/?#]*)(?::(\d*))?)(((\/(?:[^?#](?![^?#\/]*\.[^?#\/.]+(?:[?#]|$)))*\/?)?([^?#\/]*))(?:\?([^#]*))?(?:#(.*))?)/
+			}
+		};
+
+
 		$('form').submit(function(e) {
 			console.log($(this).serializeObject());
 
@@ -21,4 +52,54 @@
  
 			e.preventDefault();
 		});
+
+		$('#getImages').click(function(e) {
+			var url = $('#createUrl').val();
+
+			if(url.indexOf('http://') === -1) {
+				url = 'http://' + url;
+			}
+
+			$.post( "/getImages", url, function(data) {
+				console.log(data);
+				var urlObj = parseUri(url);
+
+				var finalList = [];
+
+				for(var i = 0; i < data.length; i++) {
+					var obj = parseUri(data[i]);
+
+					// var finalImgUrl = '';
+					// if(!obj.protocol) {
+					// 	finalImgUrl += urlObj.protocol;
+					// } else {
+					// 	finalImgUrl += obj.protocol;
+					// }
+
+					// finalImgUrl += '://';
+
+					// if(!obj.host) {
+					// 	finalImgUrl += urlObj.host;
+					// } else {
+					// 	finalImgUrl += obj.host;
+					// }
+
+					// finalImgUrl += obj.relative;
+
+					var finalImgUrl = data[i];
+					if(data[i].indexOf('.com') === -1) {
+						if(data[i][0] === '/') {
+							finalImgUrl = urlObj.protocol + '://' + urlObj.host + data[i];
+						} else {
+							continue;
+						}
+					}
+
+					finalList.push(finalImgUrl);
+				}
+
+				console.log(finalList);
+			});
+			e.preventDefault();
+		})
 	</script>
