@@ -1,0 +1,26 @@
+<% include header %>
+
+
+<div class="wrapper">
+
+	<h1>
+		<img src="/dragin2.gif" style="width:400px;padding:0px 0px 5px;"/>
+	</h1>
+
+	<% if (!user) { %>
+		<h2>Welcome! Please log in.</h2>
+		<a href="/auth/google">Login with Google</a>
+	<% } else { %>
+
+		<h2 class="loggedin"><img src="star.png" style="width:20px;"> You are amazing, <%= user.displayName %>.</h2>
+		<img src="/board.jpg" style="width:960px;" />
+
+		<script src="index.js"></script>
+	<% } %>
+
+
+	<p class="text-center text-muted">© Copyright 2015 DRAGIN</p>
+</div>
+
+
+<% include footer %>
