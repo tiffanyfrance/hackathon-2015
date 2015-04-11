@@ -8,11 +8,17 @@
 		<a href="/auth/google">Login with Google</a>
 	<% } else { %>
 		<h2>Welcome back, <%= user.displayName %>.</h2>
-		<h3><a href="/createPost">New Dragin</a></h3>
-		<h3>
+		<!-- <h3><a href="/createPost">New Dragin</a></h3> -->
+		
+		<div class="createNew">
+			<% include createPost %>
+		</div>
+
+<!-- 		<h3>
 			<a id="prevMonth" href="#">Prev</a>
 			<a id="nextMonth" href="#">Next</a>
-		</h3>
+		</h3> -->
+
 		<div class="parallax">
 			<div class="calendar"></div>
 			<div class="tasks">

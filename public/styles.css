@@ -62,6 +62,13 @@ body {
 	padding:10px;
 	color:#fff;
 }
+
+.createNew {
+	background: #D4E8F1;
+	width:50%;
+	margin:0 auto;
+	padding:10px;
+}
 .parallax {
 	font-family: silkscreen_expandednormal, sans-serif;
 	background-color:#fff;
