@@ -64,11 +64,31 @@ body {
 }
 
 .createNew {
-	background: #D4E8F1;
+	background: aliceblue;
 	width:50%;
 	margin:0 auto;
 	padding:10px;
+	color:#99ccff;
 }
+.createNew input {
+	background: transparent;
+	border: none;
+	font-size: 27px;
+}
+
+.createNew input[type="submit"] {
+	position: absolute;
+	top: 205;
+	margin: 0 auto;
+	margin-left: 15%;
+	color: #fff;
+	padding: 6px 28px;
+	border-radius: 3px;
+	border: solid 2px lightblue;
+	background: #3D7A99;
+	font-size: 14px;
+}
+
 .parallax {
 	font-family: silkscreen_expandednormal, sans-serif;
 	background-color:#fff;
@@ -84,11 +104,25 @@ body {
 }
 .calendar td.calendar-day {
 	width:14%;
+	max-width: 14%;
+	min-width: 14%;
 	height:100px;
 	border: solid 5px lightblue;
 	vertical-align: top;
 	padding: 8px;
 	font-size: 20px;
+}
+
+.calendar td.calendar-day.gray {
+	background: gray;
+	opacity: .2;
+}
+
+.calendar td span {
+	max-width:100px;
+	display:block;
+	font-size:10px;
+	font-family: helvetica, 'helvetica neue', arial, sans-serif;
 }
 .calendar th {
 	font-size: 80px;
@@ -96,14 +130,14 @@ body {
 	font-size: 80px;
 	text-align: left;
 	padding-bottom: 10px;
-	border-bottom: solid lightblue 8px;
+	border-bottom: solid lightblue 5px;
 	letter-spacing: -10px;
 	font-family: silkscreennormal, 'wendyregular', sans-serif;
 }
 
 .tasks {
 	position: fixed;
-	bottom: 20px;
+	bottom: 40px;
 	right: 0px;
 	background: #fff0ff;
 	padding: 10px 50px;
