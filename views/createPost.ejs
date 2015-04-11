@@ -1,9 +1,16 @@
 	<form action="/createPost" method="post">
-	  url: <input type="text" name="url"><br>
+		<div class="url">
+		  	title: <input type="text" name="title">
+		</div>
+		<div class="url">
+		  	url: <input type="text" name="url">
+		</div>
 
-	  title: <input type="text" name="title"><br>
-	  
-	  date: <input type="date" name="endDate" value="2015-04-11"><br>
+		<div class="titledate">
+	  		When do you want to finish this by?<br />
+	  		<input type="date" name="endDate" value="2015-04-11"><br />
+	  	</div>
+
 	  <input type="submit" value="Create Task">
 	</form>
 
