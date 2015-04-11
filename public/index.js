@@ -1,12 +1,17 @@
 var cal = new Calendar();
 
+var antonData;
+
 function updateCal(data) {
-	cal.generateHTML(data);
+	var dataToUse = (data) ? data : antonData;
+
+	cal.generateHTML(dataToUse);
 	$('div.calendar').html(cal.getHTML());
 }
 
 function getLatest() {
 	$.getJSON('/posts', function(data) {
+		antonData = data;
 		updateCal(data);
 	});
 }
